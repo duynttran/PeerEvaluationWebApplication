@@ -1,0 +1,125 @@
+<!--
+ Created 7/25/2020 by Caroline Wheeler
+ Edited 7/29/2020 by Duytan Tran: Added relevant hidden fields, set default radio to average
+ HTML for the peer evaluation form.
+-->
+
+<%= form_with  model: @peer_evaluation, url:new_peer_evaluation_path do |f|%>
+<div class="peerEval">
+  <h1> PEER EVALUATION FORM</h1>
+
+  <!-- hidden tags identify the student doing peer eval and the classmate they are evaluating-->
+  <%= hidden_field_tag(:student_id, @student_id) %>
+  <%= hidden_field_tag(:associated_id, @associated_id) %>
+  <%= hidden_field_tag(:page_id, @page_id) %>
+
+  <!-- Attendance -->
+  <div class="radio">
+  <p>
+    <b>Attended all group meetings.</b><br>
+    <%= radio_button_tag(:attendance, "0")%>
+    <%=label_tag(:no_contrib, "No Contribution") %>
+    <%= radio_button_tag(:attendance, "1")%>
+    <%=label_tag(:weak, "Weak") %>
+    <%= radio_button_tag(:attendance, "2")%>
+    <%=label_tag(:below, "Below Average") %>
+    <%= radio_button_tag(:attendance, "3", true)%>
+    <%=label_tag(:average, "Average") %>
+    <%= radio_button_tag(:attendance, "4")%>
+    <%=label_tag(:above, "Above Average") %>
+    <%= radio_button_tag(:attendance, "5")%>
+    <%=label_tag(:superior, "Superior") %>
+  </p>
+  </div>
+
+  <!-- Participation -->
+  <div class="radio">
+  <p>
+    <b>Participated in group meetings and discussion.</b><br>
+    <%= radio_button_tag(:participation, "0")%>
+    <%=label_tag(:no_contrib, "No Contribution") %>
+    <%= radio_button_tag(:participation, "1")%>
+    <%=label_tag(:weak, "Weak") %>
+    <%= radio_button_tag(:participation, "2")%>
+    <%=label_tag(:below, "Below Average") %>
+    <%= radio_button_tag(:participation, "3", true)%>
+    <%=label_tag(:average, "Average") %>
+    <%= radio_button_tag(:participation, "4")%>
+    <%=label_tag(:above, "Above Average") %>
+    <%= radio_button_tag(:participation, "5")%>
+    <%=label_tag(:superior, "Superior") %>
+  </p>
+  </div>
+
+  <!-- Contribution -->
+  <div class="radio">
+  <p>
+    <b>Contributed significantly and work was of good quality.</b><br>
+    <%= radio_button_tag(:contribution, "0")%>
+    <%=label_tag(:no_contrib, "No Contribution") %>
+    <%= radio_button_tag(:contribution, "1")%>
+    <%=label_tag(:weak, "Weak") %>
+    <%= radio_button_tag(:contribution, "2")%>
+    <%=label_tag(:below, "Below Average") %>
+    <%= radio_button_tag(:contribution, "3", true)%>
+    <%=label_tag(:average, "Average") %>
+    <%= radio_button_tag(:contribution, "4")%>
+    <%=label_tag(:above, "Above Average") %>
+    <%= radio_button_tag(:contribution, "5")%>
+    <%=label_tag(:superior, "Superior") %>
+  </p>
+  </div>
+
+  <!-- Time -->
+  <div class="radio">
+  <p>
+    <b>Completed tasks on time.</b><br>
+    <%= radio_button_tag(:time, "0")%>
+    <%=label_tag(:no_contrib, "No Contribution") %>
+    <%= radio_button_tag(:time, "1")%>
+    <%=label_tag(:weak, "Weak") %>
+    <%= radio_button_tag(:time, "2")%>
+    <%=label_tag(:below, "Below Average") %>
+    <%= radio_button_tag(:time, "3", true)%>
+    <%=label_tag(:average, "Average") %>
+    <%= radio_button_tag(:time, "4")%>
+    <%=label_tag(:above, "Above Average") %>
+    <%= radio_button_tag(:time, "5")%>
+    <%=label_tag(:superior, "Superior") %>
+  </p>
+  </div>
+
+  <!-- Teamwork -->
+  <div class="radio">
+  <p>
+    <b>Worked well with the team.</b><br>
+    <%= radio_button_tag(:team, "0")%>
+    <%=label_tag(:no_contrib, "No Contribution") %>
+    <%= radio_button_tag(:team, "1")%>
+    <%=label_tag(:weak, "Weak") %>
+    <%= radio_button_tag(:team, "2")%>
+    <%=label_tag(:below, "Below Average") %>
+    <%= radio_button_tag(:team, "3", true)%>
+    <%=label_tag(:average, "Average") %>
+    <%= radio_button_tag(:team, "4")%>
+    <%=label_tag(:above, "Above Average") %>
+    <%= radio_button_tag(:team, "5")%>
+    <%=label_tag(:superior, "Superior") %>
+  </p>
+  </div>
+
+  <!-- General -->
+  <div class="field">
+  <%= label_tag(:general, "General Feedback") %>
+  <br>
+  <%= f.text_area :general, :cols=>60, :rows=>6 %>
+  <br>
+  </div>
+
+  <!--Submit Button -->
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+
+<% end %>
+</div>

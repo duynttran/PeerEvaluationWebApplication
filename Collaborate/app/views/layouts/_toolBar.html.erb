@@ -1,0 +1,16 @@
+<!--Created 7/22/2020 by Duytan Tran
+    Edited 7/23/2020 by Duytan Tran: added check for professor to display course link
+    HTML for the toolbar partial-->
+<div class="toolbar">
+  <% if current_account %>
+    <%= link_to 'sign out', destroy_account_session_path, method: :delete %>
+    <% if Professor.exists? account_id: current_account.id %>
+      <%= link_to 'view courses', courses_path, method: :get %>
+    <% else %>
+      <%= link_to 'student portal', :authenticated_root, method: :get %>
+    <% end %>
+  <% else %>
+    <%= link_to 'sign up', new_account_path %>
+    <%= link_to 'sign in', new_account_session_path %>
+  <% end %>
+</div>

@@ -1,0 +1,41 @@
+<!-- Created 7/22/2020 by Sean Michaels
+     HTML for displaying students courses and their groups, basically their portal-->
+<h1><%= "#{@student.f_name.downcase.capitalize} #{@student.l_name.downcase.capitalize}'s Portal" %></h1>
+<br />
+<h1><%= "Courses" %></h1>
+<table>
+  <th>Section Number</th>
+  <th>Course Name</th>
+  <th>Course Number</th>
+  <% @enrolled_in.each do |course| %>
+    <tr>
+      <td><%= course.section_num %></td>
+      <td><%= course.course_name %></td>
+      <td><%= course.course_number %></td>
+    </tr>
+  <% end %>
+</table>
+<br />
+<div>
+  <h1><%= "Projects" %></h1>
+  <table>
+    <th>Project</th>
+    <th>Group Name</th>
+    <th>Peer Evaluations</th>
+    <% @pg.each do |project_name, group_assoc| %>
+      <tr>
+        <td><%= project_name  %></td>
+        <td><%= group_assoc[0].group_name %></td>
+        <td><%= link_to 'Peer Evaluations', peer_evaluation_path(group_assoc[0], associated_id: group_assoc[1].id) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+  <br />
+  <div>
+    <h1><%= "Rating" %></h1>
+    <table>
+        <tr>
+          <td><%= @rating  %></td>
+    </table>
+</div>

@@ -1,0 +1,55 @@
+<!-- Created 7/22/2020 by Duytan Tran
+     Edited 7/26/2020 by Duytan Tran: Added registering as a student or professor and retrieving additional account info
+     Edited 7/27/2020 by Duytan Tran: Added additional tags for styling
+     HTML for user registration page-->
+<div class="sign_up_page">
+<h1>Sign up</h1>
+
+<%= form_with model: @account, url: new_account_path do |f| %>
+  <%= render "devise/shared/error_messages", resource: @account %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <label>First Name</label><br/>
+    <%= f.text_field :f_name %>
+  </div>
+
+  <div class="field">
+    <label>Last Name</label><br/>
+    <%= f.text_field :l_name %>
+  </div>
+
+  <div class="field">
+    <label>Name.Number</label><br/>
+    <%= f.text_field :dot_name %>
+  </div>
+
+  <div class="role">
+    <%= radio_button_tag(:role, "student", true) %>
+    <%= label_tag(:role, "Student") %>
+    <%= radio_button_tag(:role, "professor") %>
+    <%= label_tag(:role, "Professor") %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+</div>
