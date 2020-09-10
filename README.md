@@ -1,4 +1,4 @@
-### Ruby on Rails Project: Collaborate
+# Ruby on Rails Project: Collaborate
 Collaborate is a peer evaluation submission web application that allows professors to create a centralized location in which students can submit peer evaluations pertaining to their group projects.
 
 ### Roles
