@@ -66,4 +66,4 @@ Collaborate is a peer evaluation submission web application that allows professo
 ### Systems Testing
 1. Systems testing text files can be found in the folder:
 
-    >../Project-6-Quaranteam/Collaborate/test/system/
+    >./PeerEvaluationWebApplication/Collaborate/test/system/
